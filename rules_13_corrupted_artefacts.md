@@ -26,4 +26,4 @@ The use of artifacts is not visible to other faction until the battle actually s
 
 
 ----------
-[⬅️ Back to Rules](https://zeithalt.github.io/rules/index.html#rules_13_corrupted_artefacts)
+[⬅️ Back to Rules](<https://zeithalt.github.io/rules/index.html#rules_13_corrupted_artefacts>)

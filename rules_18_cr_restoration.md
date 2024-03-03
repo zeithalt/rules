@@ -14,4 +14,4 @@ Please note that at least one battle has to happen after the land was lost to Co
 
 
 ----------
-[⬅️ Back to Rules](https://zeithalt.github.io/rules/index.html#rules_18_cr_restoration)
+[⬅️ Back to Rules](<https://zeithalt.github.io/rules/index.html#rules_18_cr_restoration>)

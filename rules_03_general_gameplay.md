@@ -48,4 +48,4 @@ Or look at the combo in the **[actual battle](<https://discord.com/channels/5629
 
 
 ----------
-[⬅️ Back to Rules](https://zeithalt.github.io/rules/index.html#rules_03_general_gameplay)
+[⬅️ Back to Rules](<https://zeithalt.github.io/rules/index.html#rules_03_general_gameplay>)

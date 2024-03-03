@@ -20,4 +20,4 @@ Once you're ready for a more serious commitment - please pick a faction 🙂
 
 
 ----------
-[⬅️ Back to Rules](https://zeithalt.github.io/rules/index.html#rules_08_sellswords)
+[⬅️ Back to Rules](<https://zeithalt.github.io/rules/index.html#rules_08_sellswords>)

@@ -23,4 +23,4 @@ A player cannot be a Top or Elite Warrior without meeting the requirement for Ve
 
 
 ----------
-[⬅️ Back to Rules](https://zeithalt.github.io/rules/index.html#rules_11_battle_rewards)
+[⬅️ Back to Rules](<https://zeithalt.github.io/rules/index.html#rules_11_battle_rewards>)

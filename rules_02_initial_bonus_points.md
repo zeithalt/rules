@@ -19,4 +19,4 @@ In case of the *attack on capital region*, some bonuses **are doubled** - rules 
 
 
 ----------
-[⬅️ Back to Rules](https://zeithalt.github.io/rules/index.html#rules_02_initial_bonus_points)
+[⬅️ Back to Rules](<https://zeithalt.github.io/rules/index.html#rules_02_initial_bonus_points>)

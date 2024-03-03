@@ -1,5 +1,5 @@
 # <a id="top"></a>Factions Game Rules
-## <a id="rules_00_introduction"></a>Introduction
+## <a id="rules_00_introduction"></a>Introduction Test
 
 `📑 Battle Rules`
 

@@ -1,4 +1,4 @@
-## Introduction
+## Introduction Test
 
 `📑 Battle Rules`
 
@@ -14,4 +14,4 @@ Have fun reading, and happy battling!
 
 
 ----------
-[⬅️ Back to Rules](https://zeithalt.github.io/rules/index.html#rules_00_introduction)
+[⬅️ Back to Rules](<https://zeithalt.github.io/rules/index.html#rules_00_introduction>)

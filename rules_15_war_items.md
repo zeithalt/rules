@@ -38,4 +38,4 @@ As we learned in the recent battle, sharing items with others can increase the f
 
 
 ----------
-[⬅️ Back to Rules](https://zeithalt.github.io/rules/index.html#rules_15_war_items)
+[⬅️ Back to Rules](<https://zeithalt.github.io/rules/index.html#rules_15_war_items>)

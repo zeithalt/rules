@@ -24,4 +24,4 @@ By participating in battles with Corruption, factions can [earn special items an
 
 
 ----------
-[⬅️ Back to Rules](https://zeithalt.github.io/rules/index.html#rules_09_corruption)
+[⬅️ Back to Rules](<https://zeithalt.github.io/rules/index.html#rules_09_corruption>)

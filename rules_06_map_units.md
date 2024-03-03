@@ -16,4 +16,4 @@ Unit bonuses are [doubled in capital sieges](https://zeithalt.github.io/rules/#r
 
 
 ----------
-[⬅️ Back to Rules](https://zeithalt.github.io/rules/index.html#rules_06_map_units)
+[⬅️ Back to Rules](<https://zeithalt.github.io/rules/index.html#rules_06_map_units>)

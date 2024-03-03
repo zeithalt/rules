@@ -29,4 +29,4 @@ Action **in foreign lands** require 50% to pass.
 
 
 ----------
-[⬅️ Back to Rules](https://zeithalt.github.io/rules/index.html#rules_14_faction_actions)
+[⬅️ Back to Rules](<https://zeithalt.github.io/rules/index.html#rules_14_faction_actions>)

@@ -23,4 +23,4 @@ Three bot commands are available during the battles:
 
 
 ----------
-[⬅️ Back to Rules](https://zeithalt.github.io/rules/index.html#rules_12_using_power_ups)
+[⬅️ Back to Rules](<https://zeithalt.github.io/rules/index.html#rules_12_using_power_ups>)
