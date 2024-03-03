@@ -6,9 +6,9 @@ Battles usually start from non-zero score. The following bonuses are applied to 
 
 **Adjacency +10 base bonus**  - for each land of the same color as attacker or a defender, connected by land.
 
-**Garrison and Supports unit bonuses** - explained in a [separate post](https://zeithalt.github.io/rules/#rules_06_map_units).
+**Garrison and Supports unit bonuses** - explained in a [separate post](<https://zeithalt.github.io/rules/#rules_06_map_units>).
 
-In case of the *attack on capital region*, some bonuses **are doubled** - rules about that [are located here](https://zeithalt.github.io/rules/#rules_10_sieging_capitals).
+In case of the *attack on capital region*, some bonuses **are doubled** - rules about that [are located here](<https://zeithalt.github.io/rules/#rules_10_sieging_capitals>).
 
 **[Here's an example from the actual battle](<https://discord.com/channels/562910943848169472/995641432742297731/1179425462208966658>)** (discord link)
 
@@ -17,6 +17,3 @@ In case of the *attack on capital region*, some bonuses **are doubled** - rules 
 > The example above assume x5 multiplier, so base 10 means 50pts, base 20 means 100pts.
 
 
-
-----------
-[⬅️ Back to Rules](<https://zeithalt.github.io/rules/index.html#rules_02_initial_bonus_points>)

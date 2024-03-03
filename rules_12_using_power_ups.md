@@ -18,9 +18,6 @@ Three bot commands are available during the battles:
 >
 > **How to use:** pure pay to win.
 
-*Power-ups are separate from [combos](https://zeithalt.github.io/rules/#rules_03_general_gameplay) and have no effect on them.*
+*Power-ups are separate from [combos](<https://zeithalt.github.io/rules/#rules_03_general_gameplay>) and have no effect on them.*
 *Every player can use each power-up only once per battle.*
 
-
-----------
-[⬅️ Back to Rules](<https://zeithalt.github.io/rules/index.html#rules_12_using_power_ups>)

@@ -3,8 +3,8 @@
 `📑 Battle Rules`
 
 Most of the game is automated by the bot: 
-- players can use **/faction_battle** command to [start a battles](https://zeithalt.github.io/rules/#rules_01_how_battles_start);
-- and **/faction_action** to do actions such as [moving units](https://zeithalt.github.io/rules/#rules_06_map_units) or [preparing attacks](https://zeithalt.github.io/rules/#rules_14_faction_actions);
+- players can use **/faction_battle** command to [start a battles](<https://zeithalt.github.io/rules/#rules_01_how_battles_start>);
+- and **/faction_action** to do actions such as [moving units](<https://zeithalt.github.io/rules/#rules_06_map_units>) or [preparing attacks](<https://zeithalt.github.io/rules/#rules_14_faction_actions>);
 - or multiple other commands such as **/faction_balance**, **/faction_craft** etc.
 
 Most of these commands are only available to **Key faction members** - people who are authorized to have access to sensitive faction info and can perform actions or use resources on faction's behalf.
@@ -27,6 +27,3 @@ There are two ways of removing the key member role from someone:
 - a majority vote of all key members (including the person in question);
 - a person willingly resigning their own key role.
 
-
-----------
-[⬅️ Back to Rules](<https://zeithalt.github.io/rules/index.html#rules_07_key_members>)

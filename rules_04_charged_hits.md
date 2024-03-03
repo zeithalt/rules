@@ -6,7 +6,7 @@ If you attack within **15m** after your cooldown has expired, your hit is **char
 
 **Charged** hits add +1 bonus point for your team, but this bonus is *erased* when combo is *stolen*.
 
-Each charged hit **during the combo** streak by default increases bonus counter **by 1 point**. However, [based on your performance in the previous battle](https://zeithalt.github.io/rules/#rules_11_battle_rewards), you can get a **bonus multiplier** for your charged hits.
+Each charged hit **during the combo** streak by default increases bonus counter **by 1 point**. However, [based on your performance in the previous battle](<https://zeithalt.github.io/rules/#rules_11_battle_rewards>), you can get a **bonus multiplier** for your charged hits.
 
 If your charged hit **steals** opponent's combo, their bonus points ** are erased**, and your team's bonus points start with 1.
 
@@ -50,6 +50,3 @@ Defenders - 5:
 --- MT - 5 (4 normal + 1 charged)
 ```
 
-
-----------
-[⬅️ Back to Rules](<https://zeithalt.github.io/rules/index.html#rules_04_charged_hits>)

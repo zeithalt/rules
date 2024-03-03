@@ -27,8 +27,5 @@ RES productions is  each land can be halted in the following cases:
 
 **Timeless Desert** produces its own type of resources - `⏳ Temporal Resources [TMP]`. It can be transmuted into 2 units of any other resource, or 1 of each (3 total).
 
-**[Learn how resources are used in battles](https://zeithalt.github.io/rules/#rules_17_spec_ops)**
+**[Learn how resources are used in battles](<https://zeithalt.github.io/rules/#rules_17_spec_ops>)**
 
-
-----------
-[⬅️ Back to Rules](<https://zeithalt.github.io/rules/index.html#rules_16_resources>)

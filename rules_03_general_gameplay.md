@@ -4,7 +4,7 @@
 
 During the battle, you just send any message containing "attack" or "defend"  in **[#battle](<https://discord.com/channels/562910943848169472/995641432742297731>)** to generate a **hit point** for your side.
 
-If you're a [sellsword](https://zeithalt.github.io/rules/#rules_08_sellswords) - you can also write "hit" command to join the current Fighters Guild contract.
+If you're a [sellsword](<https://zeithalt.github.io/rules/#rules_08_sellswords>) - you can also write "hit" command to join the current Fighters Guild contract.
 
 After a successful hit, you're put on a **45m cooldown**. You can act again after this cooldown expires.
 
@@ -46,6 +46,3 @@ Defenders - 7:
 
 Or look at the combo in the **[actual battle](<https://discord.com/channels/562910943848169472/995641432742297731/1179425490654744668>)**.
 
-
-----------
-[⬅️ Back to Rules](<https://zeithalt.github.io/rules/index.html#rules_03_general_gameplay>)

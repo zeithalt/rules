@@ -20,8 +20,5 @@ To determine the next **Corruption** target, a random roll is performed by GM a 
 
 > *Example: The first corrupted battle happened in Timeless Desert, so all capitals, 6 adjacent lands and the Desert itself were excluded from the next random roll for Corruption attack.*
 
-By participating in battles with Corruption, factions can [earn special items and get useful rewards](https://zeithalt.github.io/rules/#rules_11_battle_rewards).
+By participating in battles with Corruption, factions can [earn special items and get useful rewards](<https://zeithalt.github.io/rules/#rules_11_battle_rewards>).
 
-
-----------
-[⬅️ Back to Rules](<https://zeithalt.github.io/rules/index.html#rules_09_corruption>)

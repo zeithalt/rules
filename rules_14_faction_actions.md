@@ -20,13 +20,10 @@ Timed actions start a new challenge in [actions channel](<https://discord.com/ch
 
 During the challenge players can either **support** or **sabotage** the action by playing Influence during the challenge. Players can contribute to a challenge **every 30m** + one more time in **the last 5m** of the challenge.
 
-Support is free, while sabotage has a price attacked to it. Note that **sabotage price is charged from personal balance unless you're a [key member](https://zeithalt.github.io/rules/#rules_07_key_members) of your faction**.
+Support is free, while sabotage has a price attacked to it. Note that **sabotage price is charged from personal balance unless you're a [key member](<https://zeithalt.github.io/rules/#rules_07_key_members>) of your faction**.
 
 The challenge result is determined by the following formula:  _(support) / (support + sabotage) = xx% completion._
 
 Action **in faction lands** require 25% to pass.
 Action **in foreign lands** require 50% to pass.
 
-
-----------
-[⬅️ Back to Rules](<https://zeithalt.github.io/rules/index.html#rules_14_faction_actions>)

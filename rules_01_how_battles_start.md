@@ -4,9 +4,9 @@
 
 - Factions take turns attempting to capture territories, each cycle the order is random.
 
-- Cycle is a set of battles, one for each faction + a [Corruption](https://zeithalt.github.io/rules/#rules_09_corruption) battle.
+- Cycle is a set of battles, one for each faction + a [Corruption](<https://zeithalt.github.io/rules/#rules_09_corruption>) battle.
 
-- Faction members are free to decide where to attack by voting or any other process agreed in the faction chat, the battle is can be started by any [Key faction member](https://zeithalt.github.io/rules/#rules_07_key_members) using **/faction_battle** command.
+- Faction members are free to decide where to attack by voting or any other process agreed in the faction chat, the battle is can be started by any [Key faction member](<https://zeithalt.github.io/rules/#rules_07_key_members>) using **/faction_battle** command.
 
 - A faction can only **attack neighbouring territories **(where land connection exists) **+ one over territory by sea.**
 
@@ -16,8 +16,5 @@
 
 - Maximum time between battles - **10 days** (240h).
 
-- Same territory can not be attacked twice in a row (does not apply to [Corruption](https://zeithalt.github.io/rules/#rules_09_corruption) attacking the land).
+- Same territory can not be attacked twice in a row (does not apply to [Corruption](<https://zeithalt.github.io/rules/#rules_09_corruption>) attacking the land).
 
-
-----------
-[⬅️ Back to Rules](<https://zeithalt.github.io/rules/index.html#rules_01_how_battles_start>)

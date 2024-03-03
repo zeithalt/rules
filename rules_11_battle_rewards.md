@@ -2,7 +2,7 @@
 
 `📑 Term`
 
-Participating in battles yields rewards both in gold and increased [charged bonuses](https://zeithalt.github.io/rules/#rules_04_charged_hits) for the next battle.
+Participating in battles yields rewards both in gold and increased [charged bonuses](<https://zeithalt.github.io/rules/#rules_04_charged_hits>) for the next battle.
 
 The gold reward is simply your hits in the battle times 10: **11 hits = 110G**.
 
@@ -21,6 +21,3 @@ For example, if in a battle both **T95** and **Eldar** did 21 hits (more than an
 To be eligible for any of the titles, the minimum of 5 hits is required.  
 A player cannot be a Top or Elite Warrior without meeting the requirement for Veteran Warrior.
 
-
-----------
-[⬅️ Back to Rules](<https://zeithalt.github.io/rules/index.html#rules_11_battle_rewards>)

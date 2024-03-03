@@ -36,6 +36,3 @@ As we learned in the recent battle, sharing items with others can increase the f
 
 **_All 60 items were randomly distributed to players, at this moment there are no plans to add more items._**
 
-
-----------
-[⬅️ Back to Rules](<https://zeithalt.github.io/rules/index.html#rules_15_war_items>)

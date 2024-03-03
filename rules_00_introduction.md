@@ -12,6 +12,3 @@ If you have any questions - please ask them in **[#faction_game](<https://discor
 
 Have fun reading, and happy battling!
 
-
-----------
-[⬅️ Back to Rules](<https://zeithalt.github.io/rules/index.html#rules_00_introduction>)
