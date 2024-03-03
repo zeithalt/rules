@@ -1,4 +1,4 @@
-## Introduction Test
+## Introduction
 
 `📑 Battle Rules`
 
