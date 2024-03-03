@@ -1,4 +1,4 @@
-# <a id="top"></a>Zeithalt Timeline
+# <a id="top"></a>Factions Game Rules
 ## <a id="rules_00_introduction"></a>Introduction
 
 `📑 Battle Rules`

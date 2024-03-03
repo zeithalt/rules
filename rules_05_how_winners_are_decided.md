@@ -57,4 +57,4 @@ Even though DC scored higher in defense, defending teams work together.
 CI successfully defended their own lands.
 ```
 ----------
-[⬅️ Back to Rules](/index.html#rules_05_how_winners_are_decided)
+[⬅️ Back to Rules](https://zeithalt.github.io/rules/index.html#rules_05_how_winners_are_decided)

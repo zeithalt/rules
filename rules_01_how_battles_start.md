@@ -20,4 +20,4 @@
 
 
 ----------
-[⬅️ Back to Rules](/index.html#rules_01_how_battles_start)
+[⬅️ Back to Rules](https://zeithalt.github.io/rules/index.html#rules_01_how_battles_start)

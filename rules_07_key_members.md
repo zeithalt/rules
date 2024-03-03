@@ -29,4 +29,4 @@ There are two ways of removing the key member role from someone:
 
 
 ----------
-[⬅️ Back to Rules](/index.html#rules_07_key_members)
+[⬅️ Back to Rules](https://zeithalt.github.io/rules/index.html#rules_07_key_members)

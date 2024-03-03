@@ -21,4 +21,4 @@ When the spec-op timer runs out, the faction which spent the most RES gets bonus
 
 
 ----------
-[⬅️ Back to Rules](/index.html#rules_17_spec_ops)
+[⬅️ Back to Rules](https://zeithalt.github.io/rules/index.html#rules_17_spec_ops)

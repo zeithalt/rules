@@ -26,4 +26,4 @@ For this reason capital sieges are rare and usually happen only when the attacke
 
 
 ----------
-[⬅️ Back to Rules](/index.html#rules_10_sieging_capitals)
+[⬅️ Back to Rules](https://zeithalt.github.io/rules/index.html#rules_10_sieging_capitals)

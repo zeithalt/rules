@@ -31,4 +31,4 @@ RES productions is  each land can be halted in the following cases:
 
 
 ----------
-[⬅️ Back to Rules](/index.html#rules_16_resources)
+[⬅️ Back to Rules](https://zeithalt.github.io/rules/index.html#rules_16_resources)

@@ -52,4 +52,4 @@ Defenders - 5:
 
 
 ----------
-[⬅️ Back to Rules](/index.html#rules_04_charged_hits)
+[⬅️ Back to Rules](https://zeithalt.github.io/rules/index.html#rules_04_charged_hits)
