@@ -1,40 +1,4 @@
 # <a id="top"></a>Factions Game Rules
-## <a id="rules_00_introduction"></a>Introduction
-
-`📑 Battle Rules`
-
-_Factions Game_ is our local discord-chat-strategy-roleplay-politics game conducted by one if Influence developers _AlexxDev._
-
-If you're here solely for Influence - please visit **[#wtf_is_faction](<https://discord.com/channels/562910943848169472/1177313731223486504>)** channel for a short Q&A.
-
-These rules formally describe the core process of playing the game, but specifics are usually found in bot commands such as **/faction_action_help** or as tips and comments in bot messages or responses.
-
-If you have any questions - please ask them in **[#faction_game](<https://discord.com/channels/562910943848169472/995639554042249246>)** channel or anywhere else in the server.
-
-Have fun reading, and happy battling!
-
-
-## <a id="rules_01_how_battles_start"></a>1. How Battles Start
-
-`📑 Battle Rules`
-
-- Factions take turns attempting to capture territories, each cycle the order is random.
-
-- Cycle is a set of battles, one for each faction + a [Corruption](<https://zeithalt.github.io/rules/#rules_09_corruption>) battle.
-
-- Faction members are free to decide where to attack by voting or any other process agreed in the faction chat, the battle is can be started by any [Key faction member](<https://zeithalt.github.io/rules/#rules_07_key_members>) using **/faction_battle** command.
-
-- A faction can only **attack neighbouring territories **(where land connection exists) **+ one over territory by sea.**
-
-- A faction **has to announce their intention to attack it within two days** of the previous battle otherwise their turn will be skipped. They do not need to specify the exact time of the attack, nor the territory - just confirm the intention to take their turn.
-
-- Minimum time between battles - **7 days** (7*24h=192h) after previous battle ended.
-
-- Maximum time between battles - **10 days** (240h).
-
-- Same territory can not be attacked twice in a row (does not apply to [Corruption](<https://zeithalt.github.io/rules/#rules_09_corruption>) attacking the land).
-
-
 ## <a id="rules_02_initial_bonus_points"></a>2. Initial Bonus Points
 
 `📑 Battle Rules`
@@ -237,7 +201,7 @@ Unit bonuses are [doubled in capital sieges](<https://zeithalt.github.io/rules/#
 `📑 Battle Rules`
 
 Most of the game is automated by the bot: 
-- players can use **/faction_battle** command to [start a battles](<https://zeithalt.github.io/rules/#rules_01_how_battles_start>);
+- players can use **/faction_battle** command to [start a battles](rule_02_move_order.html);
 - and **/faction_action** to do actions such as [moving units](<https://zeithalt.github.io/rules/#rules_06_map_units>) or [preparing attacks](<https://zeithalt.github.io/rules/#rules_14_faction_actions>);
 - or multiple other commands such as **/faction_balance**, **/faction_craft** etc.
 

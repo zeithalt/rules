@@ -3,7 +3,7 @@
 `📑 Battle Rules`
 
 Most of the game is automated by the bot: 
-- players can use **/faction_battle** command to [start a battles](<https://zeithalt.github.io/rules/#rules_01_how_battles_start>);
+- players can use **/faction_battle** command to [start a battles](rule_02_move_order.html);
 - and **/faction_action** to do actions such as [moving units](<https://zeithalt.github.io/rules/#rules_06_map_units>) or [preparing attacks](<https://zeithalt.github.io/rules/#rules_14_faction_actions>);
 - or multiple other commands such as **/faction_balance**, **/faction_craft** etc.
 
