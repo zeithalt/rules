@@ -302,6 +302,22 @@
   cursor: grabbing;
 }
 
+/* ========================================================= */
+/* MISSING LINK — internal links pointing to non-existent    */
+/* pages are styled distinctly so they're easy to spot       */
+/* ========================================================= */
+.mimbot-content a.missing-link {
+  color: var(--text-muted);
+  border-bottom: 1px dashed var(--text-muted);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.mimbot-content a.missing-link:hover {
+  color: var(--text-muted);
+  border-bottom: 1px dashed var(--text-muted);
+}
+
   </style>
 </head>
 <body class="mimbot-theme">
@@ -316,7 +332,7 @@
     <div class="content">
       <h1 id="mimbot">Mimbot<a class="header-anchor" href="#mimbot">#</a></h1>
       <p>Refers to this very thing where you're reading this text!</p>
-      <p>It's our community-sourced database of <a href="https://zeithalt.github.io/r/">Lore Entries</a>, <a href="https://zeithalt.github.io/t/">Timeline Events</a> and Help articles for <code>⚔️ Global Map</code> and <code>🏰 Factions Game</code>.</p>
+      <p>It's our community-sourced database of <a class="missing-link" data-missing-file="../refs/" title="Page not found">Lore Entries</a>, <a class="missing-link" data-missing-file="../timeline/" title="Page not found">Timeline Events</a> and Help articles for <code>⚔️ Global Map</code> and <code>🏰 Factions Game</code>.</p>
       <p>Originating from a discord-server bot, it now it grew to a website-based wiki-like system with its own <a href="https://zeithalt.github.io/rules/mimbot_editor.html">Mimbot Editor</a> accessible to the community.</p>
       <p>Names after a dedicated player <a href="https://zeithalt.github.io/r/mimb.html">Mimb</a> who used to ask lots of nuanced rules-related questions when she actively played the <code>🏰 Factions Game</code>.</p>
     </div>
@@ -518,6 +534,18 @@
       }
     });
   }
+  // --- Missing Link: Hidden Editor Access (Ctrl+click or Alt+click) ---
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a.missing-link');
+    if (!link) return;
+    e.preventDefault();
+    if (e.ctrlKey || e.altKey) {
+      const file = link.dataset.missingFile;
+      if (file) {
+        window.open(`https://alexxdev.eu/md_editor?file=${encodeURIComponent(file)}`, '_blank');
+      }
+    }
+  });
 </script>
 </body>
 </html>

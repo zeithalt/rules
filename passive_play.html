@@ -302,6 +302,22 @@
   cursor: grabbing;
 }
 
+/* ========================================================= */
+/* MISSING LINK — internal links pointing to non-existent    */
+/* pages are styled distinctly so they're easy to spot       */
+/* ========================================================= */
+.mimbot-content a.missing-link {
+  color: var(--text-muted);
+  border-bottom: 1px dashed var(--text-muted);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.mimbot-content a.missing-link:hover {
+  color: var(--text-muted);
+  border-bottom: 1px dashed var(--text-muted);
+}
+
   </style>
 </head>
 <body class="mimbot-theme">
@@ -318,7 +334,7 @@
       <p><span class="tag">🏰 Factions Game</span></p>
       <p><em>Passive Play</em> refers to any game played during a battle that is not directly tied to the world map, namely anything that isn't <a href="https://zeithalt.github.io/rules/direct_play.html">Direct Play</a>.</p>
       <p>Starting a game from the <code>🔹 Influence</code> home screen or playing in tournaments will contribute to <em>Passive Play</em>.</p>
-      <p><em>Passive Play</em> applies <code>🔹 IP</code> to tiles at XX:10, XX:30, and XX:50 minutes each cycle. See <a href="https://zeithalt.github.io/rules/tile_marking.html">Locking and Marking Tiles</a> for priority.</p>
+      <p><em>Passive Play</em> applies <code>🔹 IP</code> to tiles at XX:10, XX:30, and XX:50 minutes each cycle. See <a class="missing-link" data-missing-file="../help/tile_marking.md" title="Page not found">Locking and Marking Tiles</a> for priority.</p>
       <p>During a battle, games played will add to a player's <code>🔹 IP</code> pool. At the same time, an equivalent amount of <code>🔹 IP</code> will be set to the active battles on the map the next time <em>Passive Play</em> applies.</p>
       <p>This effectively allows spending the same <code>🔹 IP</code> points twice, doubling a player's input in battle.</p>
       <p>See <code>⚔️ Battle</code></p>
@@ -521,6 +537,18 @@
       }
     });
   }
+  // --- Missing Link: Hidden Editor Access (Ctrl+click or Alt+click) ---
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a.missing-link');
+    if (!link) return;
+    e.preventDefault();
+    if (e.ctrlKey || e.altKey) {
+      const file = link.dataset.missingFile;
+      if (file) {
+        window.open(`https://alexxdev.eu/md_editor?file=${encodeURIComponent(file)}`, '_blank');
+      }
+    }
+  });
 </script>
 </body>
 </html>

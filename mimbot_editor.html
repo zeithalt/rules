@@ -302,6 +302,22 @@
   cursor: grabbing;
 }
 
+/* ========================================================= */
+/* MISSING LINK — internal links pointing to non-existent    */
+/* pages are styled distinctly so they're easy to spot       */
+/* ========================================================= */
+.mimbot-content a.missing-link {
+  color: var(--text-muted);
+  border-bottom: 1px dashed var(--text-muted);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.mimbot-content a.missing-link:hover {
+  color: var(--text-muted);
+  border-bottom: 1px dashed var(--text-muted);
+}
+
   </style>
 </head>
 <body class="mimbot-theme">
@@ -315,7 +331,7 @@
 
     <div class="content">
       <h1 id="mimbot-editor">Mimbot Editor<a class="header-anchor" href="#mimbot-editor">#</a></h1>
-      <p>Is our custom web-based text editor, used to preview and edit <a href="https://zeithalt.github.io/r/">Lore Entries</a>, <a href="https://zeithalt.github.io/t/">Timeline Events</a> and Help articles for <code>⚔️ Global Map</code> and <code>🏰 Factions Game</code> that are hosted in <a href="mimbot.html">Mimbot</a>.</p>
+      <p>Is our custom web-based text editor, used to preview and edit <a class="missing-link" data-missing-file="../refs/" title="Page not found">Lore Entries</a>, <a class="missing-link" data-missing-file="../timeline/" title="Page not found">Timeline Events</a> and Help articles for <code>⚔️ Global Map</code> and <code>🏰 Factions Game</code> that are hosted in <a href="mimbot.md">Mimbot</a>.</p>
       <h3 id="1-first-of-all-its-just-a-text-editor">1 – First of all, it's just a text editor.<a class="header-anchor" href="#1-first-of-all-its-just-a-text-editor">#</a></h3>
       <p>It's a bit clunky because I made it primarily for myself, however, even if at least one or two people start using it, it would be super awesome!</p>
       <p>It has some basic Markdown support, stuff like <em>italics</em>, <strong>bold</strong>, links and so on are supported.</p>
@@ -335,7 +351,7 @@
       <p>However, it doesn't take much time. Realistically, I should be able to both approve and publish your edits within a day or two.</p>
       <h3 id="7-how-to-start">7 – How to start<a class="header-anchor" href="#7-how-to-start">#</a></h3>
       <p>Run the <code>/help</code> command, look for what's missing.</p>
-      <p>A new file can be created by just navigating in your browser to <code>https://alexxdev.eu/md_editor?file=https://zeithalt.github.io/rules/<file_name>.html</code>.</p>
+      <p>A new file can be created by just navigating in your browser to <code>https://alexxdev.eu/md_editor?file=../help/<file_name>.md</code>.</p>
       <p>When in doubt, just ask me and I'll give you a proper link.</p>
       <h3 id="extras-it-can-be-used-for-lore">Extras – It can be used for lore<a class="header-anchor" href="#extras-it-can-be-used-for-lore">#</a></h3>
       <p>The lore pages <a href="https://zeithalt.github.io/r/alexx.html">like this</a> also have an Edit button, leading to the same editor. The same goes for the <a href="https://zeithalt.github.io/t/#eon0306">Timeline entries</a>.</p>
@@ -548,6 +564,18 @@
       }
     });
   }
+  // --- Missing Link: Hidden Editor Access (Ctrl+click or Alt+click) ---
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a.missing-link');
+    if (!link) return;
+    e.preventDefault();
+    if (e.ctrlKey || e.altKey) {
+      const file = link.dataset.missingFile;
+      if (file) {
+        window.open(`https://alexxdev.eu/md_editor?file=${encodeURIComponent(file)}`, '_blank');
+      }
+    }
+  });
 </script>
 </body>
 </html>
