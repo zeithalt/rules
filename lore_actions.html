@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,24 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="lore-actions">Lore Actions<a class="header-anchor" href="#lore-actions">#</a></h1>
-      <p><span class="tag">🏰 Factions Game</span></p>
-      <p>Factions can perform various actions in the world of the game, the impact usually decided by the GM.</p>
-      <p>The most common action is a <em><strong>Lore Build</strong></em> that allows factions to create new landmarks in their territory, earning some gold income to the faction.</p>
-      <p>Another example would be <em><strong>random events</strong></em> that offer opportunities and create adversities for factions.</p>
-      <p>All lore actions are resolved via <a class="missing-link" data-missing-file="../help/actions.md" title="Page not found">discord-based challenges</a>.</p>
-      <h3 id="how-to-start-a-lore-action">How to start a Lore Action<a class="header-anchor" href="#how-to-start-a-lore-action">#</a></h3>
-      <ul>
-        <li>make sure your faction has a <code>📖 Lore Action Point</code> (<a href="https://zeithalt.github.io/rules/bap_and_lap.html">Lore Action Point</a>);</li>
-        <li>prepare a lore post in the roleplay-forum channel on discord;</li>
-        <li>use <code>/send_gm_action</code> command in that channel to request the GM to review and start your <em>Lore Action</em>.</li>
-      </ul>
-      <blockquote>
-        <p>Note: This more a discord-side rule, only indirectly affecting <code>⚔️ Global Map</code> battles.</p>
-      </blockquote>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     
@@ -377,7 +366,62 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# Lore Actions
+\`🏰 Factions Game\`
+
+Factions can perform various actions in the world of the game, the impact usually decided by the GM.
+
+The most common action is a ***Lore Build*** that allows factions to create new landmarks in their territory, earning some gold income to the faction.
+
+Another example would be ***random events*** that offer opportunities and create adversities for factions.
+
+All lore actions are resolved via [discord-based challenges](zeithalt://missing/../help/actions.md).
+
+### How to start a Lore Action
+- make sure your faction has a \`📖 Lore Action Point\` ([Lore Action Point](<https://zeithalt.github.io/rules/bap_and_lap.html>));
+- prepare a lore post in the roleplay-forum channel on discord;
+- use \`/send_gm_action\` command in that channel to request the GM to review and start your *Lore Action*.
+
+
+> Note: This more a discord-side rule, only indirectly affecting \`⚔️ Global Map\` battles.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

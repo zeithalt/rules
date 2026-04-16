@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,19 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="bip">🔹BIP<a class="header-anchor" href="#bip">#</a></h1>
-      <p><span class="tag">⚔️ Global Map</span></p>
-      <p>Stands for <em>Bonus Influence Points</em> or <em>Battle Influence Points</em>, this a discord-only "item", awarded to the players mainly for their actions in the #battle channel on our discord server.</p>
-      <p>Such actions could be:</p>
-      <ul>
-        <li>participating in combos;</li>
-        <li>using different bomb items;</li>
-        <li>participating in the spec-ops.</li>
-      </ul>
-      <p>As opposed to <code>🔹 IP</code> (Influence Points), <em>BIP</em> can be stored in-between battles but get erased after each Corruption battle.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     
@@ -372,7 +366,55 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🔹BIP
+\`⚔️ Global Map\`
+
+Stands for *Bonus Influence Points* or *Battle Influence Points*, this a discord-only "item", awarded to the players mainly for their actions in the #battle channel on our discord server.
+
+Such actions could be:
+- participating in combos;
+- using different bomb items;
+- participating in the spec-ops.
+
+As opposed to \`🔹 IP\` (Influence Points), _BIP_ can be stored in-between battles but get erased after each Corruption battle.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

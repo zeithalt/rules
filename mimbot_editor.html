@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,44 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="mimbot-editor">Mimbot Editor<a class="header-anchor" href="#mimbot-editor">#</a></h1>
-      <p>Is our custom web-based text editor, used to preview and edit <a class="missing-link" data-missing-file="../refs/" title="Page not found">Lore Entries</a>, <a class="missing-link" data-missing-file="../timeline/" title="Page not found">Timeline Events</a> and Help articles for <code>⚔️ Global Map</code> and <code>🏰 Factions Game</code> that are hosted in <a href="mimbot.md">Mimbot</a>.</p>
-      <h3 id="1-first-of-all-its-just-a-text-editor">1 – First of all, it's just a text editor.<a class="header-anchor" href="#1-first-of-all-its-just-a-text-editor">#</a></h3>
-      <p>It's a bit clunky because I made it primarily for myself, however, even if at least one or two people start using it, it would be super awesome!</p>
-      <p>It has some basic Markdown support, stuff like <em>italics</em>, <strong>bold</strong>, links and so on are supported.</p>
-      <p>Also has search and replace functionality.</p>
-      <h3 id="2-how-to-find-it">2 – How to find it<a class="header-anchor" href="#2-how-to-find-it">#</a></h3>
-      <p>At the bottom of any help or lore page <a href="https://zeithalt.github.io/rules/direct_play.html">like this</a>, you'll find an Edit button.</p>
-      <p>Just click it, and you're there, making edits!</p>
-      <h3 id="3-strongest-feature-autocomplete">3 – Strongest feature – autocomplete<a class="header-anchor" href="#3-strongest-feature-autocomplete">#</a></h3>
-      <p>When you type <code>[</code> - a window with suggestions will pop-up, which you can use to easily insert links to other pages including <code>🏰 Factions Game</code> Lore and Timeline.</p>
-      <h3 id="4-submit-your-edits">4 – Submit your edits<a class="header-anchor" href="#4-submit-your-edits">#</a></h3>
-      <p>At the bottom of the screen you'll see the revisions / submit area. You can write a totally optional comment if you think your edits need some explanation, feel free to skip it if they don't.</p>
-      <h3 id="5-ill-review-them">5 – I'll review them<a class="header-anchor" href="#5-ill-review-them">#</a></h3>
-      <p>All submitted edits are sent be the @Mimbot to the private channel on our discord server, where I can review them and accept / discard edits.</p>
-      <p>For now, I'll be the only one with approver access. However, if you're interested in helping out by at least taking a look at the newest edits before I get to them - just ask me and I'll add you to the same Mimbot notifications channel.</p>
-      <h3 id="6-your-edits-are-published">6 – Your edits are published<a class="header-anchor" href="#6-your-edits-are-published">#</a></h3>
-      <p>At this time the approved are not automatically sent to the live version of the page, I still need to fetch and apply them via some commands on my PC.</p>
-      <p>However, it doesn't take much time. Realistically, I should be able to both approve and publish your edits within a day or two.</p>
-      <h3 id="7-how-to-start">7 – How to start<a class="header-anchor" href="#7-how-to-start">#</a></h3>
-      <p>Run the <code>/help</code> command, look for what's missing.</p>
-      <p>A new file can be created by just navigating in your browser to <code>https://alexxdev.eu/md_editor?file=../help/<file_name>.md</code>.</p>
-      <p>When in doubt, just ask me and I'll give you a proper link.</p>
-      <h3 id="extras-it-can-be-used-for-lore">Extras – It can be used for lore<a class="header-anchor" href="#extras-it-can-be-used-for-lore">#</a></h3>
-      <p>The lore pages <a href="https://zeithalt.github.io/r/alexx.html">like this</a> also have an Edit button, leading to the same editor. The same goes for the <a href="https://zeithalt.github.io/t/#eon0306">Timeline entries</a>.</p>
-      <p>Any help with those is also much appreciated, just building the <code>/help</code> command is my primary goal at the moment.</p>
-      <h3 id="extras-discordify">Extras – Discordify<a class="header-anchor" href="#extras-discordify">#</a></h3>
-      <p>In the Mimbot Editor, below the preview section you can find a <strong>Discrodify</strong> button.</p>
-      <p>This function processed the raw text from the input, replacing the links to Lore / Help / Timeline with actual ones, and removing repeated links to save on character limit. Then copied the text to clipboard.</p>
-      <blockquote>
-        <p>Note: It's NOT necessary to submit an edit before discordifying it. You can open the Mimbot Editor without specifying the file <a href="https://alexxdev.eu/md_editor">like this</a> and just use it to create a discord message for posting.</p>
-      </blockquote>
-      <h3 id="note-on-private-notes">Note on private notes<a class="header-anchor" href="#note-on-private-notes">#</a></h3>
-      <p>You <em>technically</em> can use Mimbot Editor as a private notepad, but <strong>I would strongly recommend against it</strong>.</p>
-      <p>It's not <em>really</em> private when I can see it (always), or others can see it (by guessing your filename), isn't it?</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     
@@ -397,7 +366,100 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# Mimbot Editor
+
+Is our custom web-based text editor, used to preview and edit [Lore Entries](zeithalt://missing/../refs/), [Timeline Events](zeithalt://missing/../timeline/) and Help articles for \`⚔️ Global Map\` and \`🏰 Factions Game\` that are hosted in [Mimbot](mimbot.md).
+
+### 1 – First of all, it's just a text editor.
+It's a bit clunky because I made it primarily for myself, however, even if at least one or two people start using it, it would be super awesome!
+
+It has some basic Markdown support, stuff like *italics*, **bold**, links and so on are supported.
+
+Also has search and replace functionality.
+
+### 2 – How to find it
+At the bottom of any help or lore page [like this](<https://zeithalt.github.io/rules/direct_play.html>), you'll find an Edit button.
+Just click it, and you're there, making edits!
+
+### 3 – Strongest feature – autocomplete
+When you type \`[\` - a window with suggestions will pop-up, which you can use to easily insert links to other pages including \`🏰 Factions Game\` Lore and Timeline.
+
+### 4 – Submit your edits
+At the bottom of the screen you'll see the revisions / submit area. You can write a totally optional comment if you think your edits need some explanation, feel free to skip it if they don't.
+
+### 5 – I'll review them
+All submitted edits are sent be the @Mimbot to the private channel on our discord server, where I can review them and accept / discard edits. 
+
+For now, I'll be the only one with approver access. However, if you're interested in helping out by at least taking a look at the newest edits before I get to them - just ask me and I'll add you to the same Mimbot notifications channel.
+
+### 6 – Your edits are published
+At this time the approved are not automatically sent to the live version of the page, I still need to fetch and apply them via some commands on my PC. 
+
+However, it doesn't take much time. Realistically, I should be able to both approve and publish your edits within a day or two.
+
+### 7 – How to start
+Run the \`/help\` command, look for what's missing. 
+
+A new file can be created by just navigating in your browser to \`https://alexxdev.eu/md_editor?file=../help/<file_name>.md\`.
+
+When in doubt, just ask me and I'll give you a proper link.
+
+### Extras – It can be used for lore
+The lore pages [like this](<https://zeithalt.github.io/r/alexx.html>) also have an Edit button, leading to the same editor. The same goes for the [Timeline entries](<https://zeithalt.github.io/t/#eon0306>). 
+
+Any help with those is also much appreciated, just building the \`/help\` command is my primary goal at the moment.
+
+### Extras – Discordify
+In the Mimbot Editor, below the preview section you can find a **Discrodify** button. 
+
+This function processed the raw text from the input, replacing the links to Lore / Help / Timeline with actual ones, and removing repeated links to save on character limit. Then copied the text to clipboard.
+
+> Note: It's NOT necessary to submit an edit before discordifying it. You can open the Mimbot Editor without specifying the file [like this](<https://alexxdev.eu/md_editor>) and just use it to create a discord message for posting.
+
+
+### Note on private notes
+
+You *technically* can use Mimbot Editor as a private notepad, but **I would strongly recommend against it**.
+
+It's not *really* private when I can see it (always), or others can see it (by guessing your filename), isn't it?
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

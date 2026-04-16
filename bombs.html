@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,60 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="bombs">Bombs<a class="header-anchor" href="#bombs">#</a></h1>
-      <p><span class="tag">🏰 Factions Game</span></p>
-      <p>Bombs are an instant source of <a href="https://zeithalt.github.io/rules/bip.html">🔹BIP</a> when used by executing commands in the #battle channel during an active <a class="missing-link" data-missing-file="../refs/discord_battle.md" title="Page not found">discord battle</a>.</p>
-      <h3 id="there-are-two-types-of-bombs">There are two types of bombs<a class="header-anchor" href="#there-are-two-types-of-bombs">#</a></h3>
-      <ul>
-        <li><em>interceptable</em> bombs can be claimed by the first person to solve the puzzle or answer a trivia question. These usually yield a reward of 75,000 BIP.</li>
-        <li><em>non-interceptable</em> bombs yield smaller rewards; however, they immediately granted the full reward to the person detonating them.</li>
-      </ul>
-      <p>To use a bomb, you need to have it as an item in your Discord inventory. Key faction members also can use bombs stored in the faction inventory.</p>
-      <h3 id="currently-known-bombs-in-play-non-interceptable">Currently known bombs in play, non-interceptable:<a class="header-anchor" href="#currently-known-bombs-in-play-non-interceptable">#</a></h3>
-      <ul>
-        <li><code>/boom</code> - <strong>Bomb</strong> - 50,000 IP</li>
-      </ul>
-      <p>Basic bomb, can be found in <a href="https://zeithalt.github.io/r/gold_mines.html">Gold Mines</a>.</p>
-      <ul>
-        <li><code>/big_boom</code> - <strong>A-maze-ing bomb</strong> - 75,000 IP</li>
-      </ul>
-      <p>Strongest of non-interceptable bombs, only found in the <a href="https://zeithalt.github.io/r/maze.html">Mysterious Mazes</a>.</p>
-      <ul>
-        <li><code>/firework</code> - <strong>Firework</strong> - 10,000 IP</li>
-      </ul>
-      <p>Fireworks can be found in the <a href="https://zeithalt.github.io/r/maze.html">Mysterious Mazes</a> or as rewards during certain <a href="https://zeithalt.github.io/rules/lore_actions.html">Lore Actions</a>.</p>
-      <ul>
-        <li><code>/time</code> - <strong>Timeless bombs</strong> - 50,000 IP</li>
-      </ul>
-      <p>It is unknown how these are acquired. There are souls forever lost from trying to steal the secrets of the <a href="https://zeithalt.github.io/r/timeless_desert.html">Timeless Desert</a>.</p>
-      <h3 id="the-rest-of-the-bombs-are-interceptable">The rest of the bombs are interceptable:<a class="header-anchor" href="#the-rest-of-the-bombs-are-interceptable">#</a></h3>
-      <ul>
-        <li><code>/lore_boom</code> - <strong>Lore bomb</strong> - <code>🔹 75,000 IP</code></li>
-      </ul>
-      <p>Lore bombs are locked by a question about the lore of the island. Example answers include on which <a href="https://zeithalt.github.io/r/eon.html">Eon</a> structures were built. Can be stolen by someone answering the question faster. Can be found in <a href="https://zeithalt.github.io/r/gold_mines.html">Gold Mines</a> or <a href="https://zeithalt.github.io/r/maze.html">Mysterious Mazes</a>.</p>
-      <ul>
-        <li><code>/cryptic</code> - <strong>Cryptic bomb</strong> - 75,000 IP</li>
-      </ul>
-      <p>Cryptic bombs are locked by a shift cypher. An example is (ennc) which would be answered by (food). Can be found in <a href="https://zeithalt.github.io/r/gold_mines.html">Gold Mines</a> or <a href="https://zeithalt.github.io/r/maze.html">Mysterious Mazes</a>.</p>
-      <ul>
-        <li><code>/currency</code> - <strong>Currency bomb</strong> - 75,000 IP</li>
-      </ul>
-      <p>Currency bombs are locked by a question regarding the three-letter currency code of a real world country. An example is (EUR). Can be found in <a href="https://zeithalt.github.io/r/gold_mines.html">Gold Mines</a> or <a href="https://zeithalt.github.io/r/maze.html">Mysterious Mazes</a>.</p>
-      <ul>
-        <li><code>/math</code> - <strong>Math bomb</strong> - 75,000 IP</li>
-      </ul>
-      <p>Math bombs are locked by a simple math problem. An example would be 934-356. Can be found in <a href="https://zeithalt.github.io/r/gold_mines.html">Gold Mines</a> or <a href="https://zeithalt.github.io/r/maze.html">Mysterious Mazes</a>.</p>
-      <ul>
-        <li><code>/capital</code> - <strong>Capital bomb</strong> - 75,000 IP</li>
-      </ul>
-      <p>Capital bombs are locked by a question regarding the capital city of a real world country. An example is (Paris). Can be found in <a href="https://zeithalt.github.io/r/gold_mines.html">Gold Mines</a> or <a href="https://zeithalt.github.io/r/maze.html">Mysterious Mazes</a>.</p>
-      <ul>
-        <li><code>/anagram</code> - <strong>Anagram bomb</strong> - 75,000 IP</li>
-      </ul>
-      <p>Anagram bombs are locked by an anagram puzzle. An example is (ghirhe) which would be answered by (higher). Can be found in <a href="https://zeithalt.github.io/r/gold_mines.html">Gold Mines</a> or <a href="https://zeithalt.github.io/r/maze.html">Mysterious Mazes</a>.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     
@@ -413,7 +366,87 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# Bombs
+\`🏰 Factions Game\`
+
+Bombs are an instant source of [🔹BIP](<https://zeithalt.github.io/rules/bip.html>) when used by executing commands in the #battle channel during an active [discord battle](zeithalt://missing/../refs/discord_battle.md).
+
+### There are two types of bombs 
+- *interceptable* bombs can be claimed by the first person to solve the puzzle or answer a trivia question. These usually yield a reward of 75,000 BIP.
+- *non-interceptable* bombs yield smaller rewards; however, they immediately granted the full reward to the person detonating them. 
+
+To use a bomb, you need to have it as an item in your Discord inventory. Key faction members also can use bombs stored in the faction inventory. 
+
+### Currently known bombs in play, non-interceptable:
+
+- \`/boom\` - **Bomb** - \`🔹 50,000 IP\`  
+Basic bomb, can be found in [Gold Mines](<https://zeithalt.github.io/r/gold_mines.html>).
+
+- \`/big_boom\` - **A-maze-ing bomb** - \`🔹 75,000 IP\`  
+Strongest of non-interceptable bombs, only found in the [Mysterious Mazes](<https://zeithalt.github.io/r/maze.html>).
+
+- \`/firework\` - **Firework** - \`🔹 10,000 IP\`  
+Fireworks can be found in the [Mysterious Mazes](<https://zeithalt.github.io/r/maze.html>) or as rewards during certain [Lore Actions](<https://zeithalt.github.io/rules/lore_actions.html>).
+
+- \`/time\` - **Timeless bombs** - \`🔹 50,000 IP\`  
+It is unknown how these are acquired. There are souls forever lost from trying to steal the secrets of the [Timeless Desert](<https://zeithalt.github.io/r/timeless_desert.html>).
+
+### The rest of the bombs are interceptable:
+- \`/lore_boom\` - **Lore bomb** - \`🔹 75,000 IP\`  
+Lore bombs are locked by a question about the lore of the island. Example answers include on which [Eon](<https://zeithalt.github.io/r/eon.html>) structures were built. Can be stolen by someone answering the question faster. Can be found in [Gold Mines](<https://zeithalt.github.io/r/gold_mines.html>) or [Mysterious Mazes](<https://zeithalt.github.io/r/maze.html>).
+
+- \`/cryptic\` - **Cryptic bomb** - \`🔹 75,000 IP\`  
+Cryptic bombs are locked by a shift cypher. An example is (ennc) which would be answered by (food). Can be found in [Gold Mines](<https://zeithalt.github.io/r/gold_mines.html>) or [Mysterious Mazes](<https://zeithalt.github.io/r/maze.html>).
+
+- \`/currency\` - **Currency bomb** - \`🔹 75,000 IP\`  
+Currency bombs are locked by a question regarding the three-letter currency code of a real world country. An example is (EUR). Can be found in [Gold Mines](<https://zeithalt.github.io/r/gold_mines.html>) or [Mysterious Mazes](<https://zeithalt.github.io/r/maze.html>).
+
+- \`/math\` - **Math bomb** - \`🔹 75,000 IP\`  
+Math bombs are locked by a simple math problem. An example would be 934-356. Can be found in [Gold Mines](<https://zeithalt.github.io/r/gold_mines.html>) or [Mysterious Mazes](<https://zeithalt.github.io/r/maze.html>).
+
+- \`/capital\` - **Capital bomb** - \`🔹 75,000 IP\`  
+Capital bombs are locked by a question regarding the capital city of a real world country. An example is (Paris). Can be found in [Gold Mines](<https://zeithalt.github.io/r/gold_mines.html>) or [Mysterious Mazes](<https://zeithalt.github.io/r/maze.html>).
+
+- \`/anagram\` - **Anagram bomb** - \`🔹 75,000 IP\`  
+Anagram bombs are locked by an anagram puzzle. An example is (ghirhe) which would be answered by (higher). Can be found in [Gold Mines](<https://zeithalt.github.io/r/gold_mines.html>) or [Mysterious Mazes](<https://zeithalt.github.io/r/maze.html>).
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

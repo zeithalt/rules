@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,23 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="bap-and-lap">BAP and LAP<a class="header-anchor" href="#bap-and-lap">#</a></h1>
-      <p><span class="tag">🏰 Factions Game</span></p>
-      <h3 id="battle-action-point-bap"><code>⚔️ Battle Action Point</code> (BAP)<a class="header-anchor" href="#battle-action-point-bap">#</a></h3>
-      <p>Used by factions to perform actions that affect the <code>⚔️ Global Map</code> directly.</p>
-      <p>These are such actions as moving map units, building fortifications and so on. The full list of actions is available via <code>/faction_action_help</code> command on discord.</p>
-      <p>Most Battle Actions are automated via the <code>/faction_action</code>command.</p>
-      <h3 id="lore-action-point-lap"><code>📖 Lore Action Point</code> (LAP)<a class="header-anchor" href="#lore-action-point-lap">#</a></h3>
-      <p>Used by factions to perform <a href="https://zeithalt.github.io/rules/lore_actions.html">lore actions</a> that only have an indirect effect on the <code>⚔️ Global Map</code> state.</p>
-      <p>These are such actions as building new landmarks, or random game world events.</p>
-      <p><a href="https://zeithalt.github.io/rules/lore_actions.html">Lore Actions</a> are usually manual and need to be requested from GM via <code>/send_gm_action</code> command on discord.</p>
-      <h3 id="how-baps-and-laps-work">How BAPs and LAPs work<a class="header-anchor" href="#how-baps-and-laps-work">#</a></h3>
-      <p>After each battle, all unused <code>⚔️ Battle Action Point</code> and <code>📖 Lore Action Point</code> are erased, and each faction gets a new <code>⚔️ Battle Action Point</code> that they can use until the next battle.</p>
-      <p><code>📖 Lore Action Point</code> can be crafted from a <code>⚔️ Battle Action Point</code> using <code>/faction_craft</code> command.</p>
-      <p>Both <code>📖 Lore Action Point</code> and <code>⚔️ Battle Action Point</code> are transferable items that can be shared between factions, allowing them to take more than one action per turn.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     
@@ -376,7 +366,67 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# BAP and LAP
+\`🏰 Factions Game\`
+
+### \`⚔️ Battle Action Point\` (BAP)
+Used by factions to perform actions that affect the \`⚔️ Global Map\` directly. 
+
+These are such actions as moving map units, building fortifications and so on. The full list of actions is available via \`/faction_action_help\` command on discord.
+
+Most Battle Actions are automated via the \`/faction_action\`command.
+
+### \`📖 Lore Action Point\` (LAP)
+Used by factions to perform [lore actions](<https://zeithalt.github.io/rules/lore_actions.html>) that only have an indirect effect on the \`⚔️ Global Map\` state.
+
+These are such actions as building new landmarks, or random game world events.
+
+[Lore Actions](<https://zeithalt.github.io/rules/lore_actions.html>) are usually manual and need to be requested from GM via \`/send_gm_action\` command on discord.
+
+### How BAPs and LAPs work
+After each battle, all unused \`⚔️ Battle Action Point\` and \`📖 Lore Action Point\` are erased, and each faction gets a new \`⚔️ Battle Action Point\` that they can use until the next battle.
+
+\`📖 Lore Action Point\` can be crafted from a \`⚔️ Battle Action Point\` using \`/faction_craft\` command.
+
+Both \`📖 Lore Action Point\` and \`⚔️ Battle Action Point\` are transferable items that can be shared between factions, allowing them to take more than one action per turn.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

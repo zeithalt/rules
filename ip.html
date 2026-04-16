@@ -19,7 +19,7 @@
   <meta property="og:title" content="🔹 IP">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="🔹 IP or Influence Points, refers to the points that players earn by playing Influence normally, either in singleplayer or tournament game modes.">
+  <meta property="og:description" content="For the ⚔️ Global Map, 🔹 IP is the main resource to capture or defend tiles on the map.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="🔹 IP">
-  <meta name="twitter:description" content="🔹 IP or Influence Points, refers to the points that players earn by playing Influence normally, either in singleplayer or tournament game modes.">
+  <meta name="twitter:description" content="For the ⚔️ Global Map, 🔹 IP is the main resource to capture or defend tiles on the map.">
   <meta name="twitter:image" content="">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,24 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="ip">🔹 IP<a class="header-anchor" href="#ip">#</a></h1>
-      <p><span class="tag">⚔️ Global Map</span></p>
-      <p><code>🔹 IP</code> or <em>Influence Points</em>, refers to the points that players earn by playing Influence normally, either in singleplayer or tournament game modes.</p>
-      <p>For the <code>⚔️ Global Map</code>, <code>🔹 IP</code> is the main resource to capture or defend tiles on the map.</p>
-      <p><code>🔹 IP</code> can be used in one of the following ways:</p>
-      <ul>
-        <li><a href="https://zeithalt.github.io/rules/direct_play.html">Direct Play</a>;</li>
-        <li><a href="https://zeithalt.github.io/rules/passive_play.html">Passive Play</a>;</li>
-        <li>spending points manually to the tiles on the map.</li>
-      </ul>
-      <p>Players can start pre-farming their <code>🔹 IP</code> for <strong>3h</strong> before the scheduled battle starts.</p>
-      <p>The <code>🔹 IP</code> acquired by playing Influence are not permanent, they are only valid for the duration of the currently ongoing battle.</p>
-      <blockquote>
-        <p><em>Note that both <a href="https://zeithalt.github.io/rules/direct_play.html">Direct Play</a> and <a href="https://zeithalt.github.io/rules/passive_play.html">Passive Play</a> effectively double your <code>🔹 IP</code> output if you then go to the map and spend the very same points manually.</em></p>
-      </blockquote>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     
@@ -377,7 +366,61 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🔹 IP
+\`⚔️ Global Map\`
+
+\`🔹 IP\` or *Influence Points*, refers to the points that players earn by playing Influence normally, either in singleplayer or tournament game modes.
+
+For the \`⚔️ Global Map\`, \`🔹 IP\` is the main resource to capture or defend tiles on the map.
+
+\`🔹 IP\` can be used in one of the following ways:
+- [Direct Play](<https://zeithalt.github.io/rules/direct_play.html>);
+- [Passive Play](<https://zeithalt.github.io/rules/passive_play.html>);
+- spending points manually to the tiles on the map.
+
+Players can start pre-farming their \`🔹 IP\` for **3h** before the scheduled battle starts. 
+
+The \`🔹 IP\` acquired by playing Influence are not permanent, they are only valid for the duration of the currently ongoing battle.
+
+> *Note that both [Direct Play](<https://zeithalt.github.io/rules/direct_play.html>) and [Passive Play](<https://zeithalt.github.io/rules/passive_play.html>) effectively double your \`🔹 IP\` output if you then go to the map and spend the very same points manually.*
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)
